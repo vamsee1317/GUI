@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Optimized Analog Clock</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #f2f2f2;
+      font-family: sans-serif;
+    }
+
+    .face {
+      position: relative;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: conic-gradient(white 0%, silver 10%, white 35%, silver 45%, white 60%, silver 70%, white 80%, silver 95%, white 100%);
+      background-size: cover;
+      box-shadow: inset 0 0 10px #0007;
+      outline: 10px solid #333;
+    }
+
+    .hand {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -100%);
+      transform-origin: center 100%;
+      background: #aaa;
+      border-radius: 3px;
+      box-shadow: inset 1px 2px 1px #333, inset -1px -2px 1px #333;
+    }
+
+    .hour {
+      height: 60px;
+      width: 5px;
+      z-index: 1;
+      animation: rotate 43200s linear infinite;
+    }
+
+    .minute {
+      height: 80px;
+      width: 3.5px;
+      z-index: 2;
+      animation: rotate 3600s linear infinite;
+    }
+
+    .second-wrapper {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: red;
+      border-radius: 50%;
+      border: 1px solid #eee;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+      animation: rotate 60s steps(60, end) infinite;
+    }
+
+    .second-wrapper::before {
+      content: "";
+      position: absolute;
+      width: 1.5px;
+      height: 90px;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: red;
+      border-radius: 2px;
+    }
+
+    .second-wrapper::after {
+      content: "";
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background: #555;
+      border-radius: 50%;
+      top: 2.5px;
+      left: 2.5px;
+    }
+
+    .number {
+      position: absolute;
+      font-weight: bold;
+      color: #333;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    .number.n12 { top: 5px; left: 50%; transform: translateX(-50%); }
+    .number.n3 { top: 50%; right: 5px; transform: translateY(-50%); }
+    .number.n6 { bottom: 5px; left: 50%; transform: translateX(-50%); }
+    .number.n9 { top: 50%; left: 5px; transform: translateY(-50%); }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg) translate(-50%, -100%); }
+      100% { transform: rotate(360deg) translate(-50%, -100%); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="face">
+    <!-- Hour markers -->
+    <div class="number n12">12</div>
+    <div class="number n3">3</div>
+    <div class="number n6">6</div>
+    <div class="number n9">9</div>
+
+    <!-- Hands -->
+    <div class="hand hour"></div>
+    <div class="hand minute"></div>
+    <div class="second-wrapper"></div>
+  </div>
+
+</body>
+</html>
