@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Landing Page</title>
+  <link rel="stylesheet" href="./home.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">MyBrand</div>
+    <nav class="nav" id="nav">
+      <a href="#hero">Home</a>
+      <a href="#team">Team</a>
+      <a href="#footer">Contact</a>
+    </nav>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <h1>Welcome to Our World</h1>
+    <p>Your success is our mission. Let's build something great together.</p>
+    <button class="hero-btn">Get Started</button>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team-section" id="team">
+    <h2>Meet Our Team</h2>
+    <div class="team-container">
+      <div class="team-card">
+        <img src="https://via.placeholder.com/150" alt="John Doe">
+        <h3>John Doe</h3>
+        <p>Frontend Developer</p>
+      </div>
+      <div class="team-card">
+        <img src="https://via.placeholder.com/150" alt="Jane Smith">
+        <h3>Jane Smith</h3>
+        <p>UI/UX Designer</p>
+      </div>
+      <div class="team-card">
+        <img src="https://via.placeholder.com/150" alt="Mark Taylor">
+        <h3>Mark Taylor</h3>
+        <p>Backend Developer</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+    <p>© 2025 MyBrand. All rights reserved.</p>
+    <div class="socials">
+      <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+  const nav = document.getElementById("nav");
+  nav.classList.toggle("show");
+}
+
+  </script>
+</body>
+</html>
